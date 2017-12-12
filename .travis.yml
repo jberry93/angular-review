@@ -1,0 +1,23 @@
+language: node_js
+
+node_js:
+  - node
+  - '7'
+  - '8'
+
+branches:
+  only:
+    - master
+
+before_script:
+  - npm i -g coveralls
+  - npm i -g codecov
+
+script:
+  - npm run coverage
+  - codecov
+
+cache:
+  yarn: true
+  directories:
+    - "node_modules"
